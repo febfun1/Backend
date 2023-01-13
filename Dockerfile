@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Build the application
-RUN npm run build
+#RUN npm run build
 
 # Expose the port
 EXPOSE 8080
