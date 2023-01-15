@@ -25,8 +25,9 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                sh "docker login -u eruobodo -p Fifehanmi@2021"
-                sh "docker tag eruobodo/mybackend-nodejs-app:$BUILD_NUMBER eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
+                //sh "docker login -u eruobodo -p Fifehanmi@2021"
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login --username eruobodo --password-stdin'
+                //sh "docker tag eruobodo/mybackend-nodejs-app:$BUILD_NUMBER eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
                 sh "docker push eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
             }
         //stage('Login') {
