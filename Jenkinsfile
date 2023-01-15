@@ -20,27 +20,25 @@ pipeline {
 	    
         stage('Dockerize') {
             steps {
-                sh "docker build -t eruobodo/mybackend-nodejs-app:${BUILD_NUMBER} ."
+                sh "docker build -t febfun/mybackend-nodejs-app:${BUILD_NUMBER} ."
             }
         }
         stage('Publish') {
             steps {
-                //sh "docker login -u eruobodo -p Fifehanmi@2021"
-		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login --username eruobodo --password-stdin'
-                //sh "docker tag eruobodo/mybackend-nodejs-app:$BUILD_NUMBER eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
-                sh "docker push eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
+                //sh "docker login -u febfun -p America123"
+		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login --username febfun --password-stdin'
             }
         //stage('Login') {
 		
               //steps {
-              //   sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login --username eruobodo --password-stdin'    
+              //   sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login --username febfun --password-stdin'    
              // }
 		   // }
 
         //stage('Push') {
 
              // steps {
-                 //sh 'docker push eruobodo/backend-app:${BUILD_NUMBER}'
+                 //sh 'docker push febfun/backend-app:${BUILD_NUMBER}'
              // }
        // }
 		}
