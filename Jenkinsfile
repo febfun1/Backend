@@ -20,14 +20,14 @@ pipeline {
 	    
         stage('Dockerize') {
             steps {
-                sh "docker build -t eruobodo/backend-app:${BUILD_NUMBER} ."
+                sh "docker build -t eruobodo/mybackend-nodejs-app:${BUILD_NUMBER} ."
             }
         }
         stage('Publish') {
             steps {
-                sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
-                sh "docker tag your-nodejs-app $DOCKER_USERNAME/your-nodejs-app:$BUILD_NUMBER"
-                sh "docker push $DOCKER_USERNAME/mybackend-nodejs-app:$BUILD_NUMBER"
+                sh "docker login -u eruobodo -p Fifehanmi@2021"
+                sh "docker tag mybackend-nodejs-app eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
+                sh "docker push eruobodo/mybackend-nodejs-app:$BUILD_NUMBER"
             }
         //stage('Login') {
 		
